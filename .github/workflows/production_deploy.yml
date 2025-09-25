@@ -39,13 +39,7 @@ jobs:
 
     
 
-      - name: Login to Artifact Registry
-        id: gar-login
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.GAR_REGISTRY }}
-          username: oauth2accesstoken
-          password: ${{ steps.gcp-auth.outputs.access_token }}
+    
 
       - name: Pull Docker Hub image
         run: docker pull ${{ env.DOCKERHUB_IMAGE }}:${{ inputs.originalImageTag }}
